@@ -48,7 +48,7 @@ export default function ButtonAppBar() {
           <InputBase
             className={classes.input}
             placeholder='Search...'
-            color='inherit'
+            color='primary'
           />
           <IconButton
             type='submit'

@@ -58,7 +58,7 @@ export default function CartItem({ data }) {
           alignItems='center'
           spacing={2}
         >
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} md={6}>
             <Typography gutterBottom variant='h5' component='h2' noWrap>
               {data.name}
             </Typography>
@@ -68,17 +68,17 @@ export default function CartItem({ data }) {
               component='p'
               className={classes.price}
             >
-              <span>&#8377;{data.price.display}</span>
+              <span>&#8377;{data.price.actual}</span>
               <span className={classes.actualPrice}>
-                &#8377;{data.price.actual}
+                &#8377;{data.price.display}
               </span>
               <span className={classes.discount}>{data.discount}% off</span>
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} md={3}>
             <AddToCartBtn id={data.id} />
           </Grid>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} md={3}>
             <Button onClick={() => dispatch(removeFromCart(data.id))}>
               Remove
             </Button>

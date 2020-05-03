@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  ButtonGroup,
-  IconButton,
-  InputBase,
-  Button,
-  makeStyles,
-} from '@material-ui/core';
+import { ButtonGroup, IconButton, Button, makeStyles } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { useSelector, useDispatch } from 'react-redux';
@@ -52,17 +46,11 @@ export default function AddToCartBtn(props) {
       size='small'
       color='primary'
       className={classes.root}
-      fullWidth
     >
       <IconButton onClick={() => onAddToCart(itemCount - 1)}>
         <RemoveIcon />
       </IconButton>
-      <InputBase
-        value={itemCount}
-        disabled
-        style={{ textAlign: 'center' }}
-        classes={{ input: classes.input }}
-      />
+      <IconButton disabled>{itemCount}</IconButton>
       <IconButton onClick={() => onAddToCart(itemCount + 1)}>
         <AddIcon />
       </IconButton>

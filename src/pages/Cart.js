@@ -1,22 +1,11 @@
 import React, { useEffect } from 'react';
-import Item from '../components/Item';
-import { Grid, makeStyles } from '@material-ui/core';
-import Filters from '../components/Filters';
-import SortBy from '../components/SortBy';
+import Grid from '@material-ui/core/Grid';
 import { getItems } from '../store/actions/itemActions';
 import { useSelector, useDispatch } from 'react-redux';
-import {} from 'redux';
 import CartItem from '../components/CartItem';
 import PriceDetails from '../components/PriceDetails';
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-});
-
 export default function Cart(props) {
-  const classes = useStyles();
   const dispatch = useDispatch();
   const items = useSelector((state) => state.item.items);
   const cartItems = useSelector((state) => state.cart);

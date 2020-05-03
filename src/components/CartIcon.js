@@ -15,7 +15,12 @@ const useStyles = makeStyles({
 
 export default function CartIcon() {
   const classes = useStyles();
-  const totalItems = useSelector((state) => Object.keys(state.cart).length);
+  const totalItems = useSelector((state) =>
+    Object.keys(state.cart).reduce(
+      (acc, itemId) => acc + state.cart[itemId].count,
+      0
+    )
+  );
 
   return (
     <Link to='/cart' className={classes.root}>

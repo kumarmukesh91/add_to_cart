@@ -42,7 +42,6 @@ export default function PriceDetails() {
         payable: 0,
       }
     );
-    debugger;
     setCartTotal(cartTotal);
   }, [items, cartItems]);
 

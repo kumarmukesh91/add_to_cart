@@ -7,7 +7,6 @@ export const getItemsSelector = (item) => {
   switch (filters.sortBy) {
     case PRICE_LOW_TO_HIGH:
       items = items.sort((a, b) => a.price.actual - b.price.actual);
-      debugger;
       break;
     case PRICE_HIGH_TO_LOW:
       items = items.sort((a, b) => b.price.actual - a.price.actual);
@@ -25,6 +24,12 @@ export const getItemsSelector = (item) => {
       (item) =>
         filters.priceRange[0] <= item.price.actual &&
         item.price.actual <= filters.priceRange[1]
+    );
+  }
+
+  if (filters.search) {
+    items = items.filter((item) =>
+      item.name.toLowerCase().includes(filters.search)
     );
   }
 

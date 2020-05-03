@@ -28,11 +28,13 @@ export default function PriceDetails() {
     const cartTotal = Object.keys(cartItems).reduce(
       (acc, itemId) => {
         const item = items.find((item) => item.id === itemId);
+        const count = cartItems[itemId].count;
         return {
-          items: acc.items + cartItems[itemId].count,
-          price: acc.price + item.price.display,
-          discount: acc.discount + (item.price.display - item.price.actual),
-          payable: acc.payable + item.price.actual,
+          items: acc.items + count,
+          price: acc.price + item.price.display * count,
+          discount:
+            acc.discount + (item.price.display - item.price.actual) * count,
+          payable: acc.payable + item.price.actual * count,
         };
       },
       {
